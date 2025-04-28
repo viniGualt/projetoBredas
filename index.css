@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #3f3c40;
+    --terciary-color: #38a0d4;
+    --font-dark: #fff;
+    --secondary-font-dark: #bebebe;
+    --font-light: #000000;
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: "Rubik";
+}
+
+.font-weight-bold {
+    font-weight: bold;
+}
+
+.blue .navbar-brand, .blue .nav-link, .navbar-toggler {
+    color: var(--font-dark);
+}
+
+.bg-blue {
+    background-color: var(--primary-color);
+}
+
+.navbar-toggler:focus, .navbar-toggler {
+    border: none;
+    transition: 300ms;
+    outline: none;
+    box-shadow: none;
+}
+
+.navbar-collapse {
+    transition: 800ms ease;
+}
+
+.link-blue .nav-link {
+    color: var(--secondary-font-dark);
+}
+.link-blue .nav-link:hover {
+    transition: 300ms;
+    color: var(--terciary-color);
+}
+
+.cart-blue:hover {
+    transition: 300ms;
+    color: var(--terciary-color);
+}
+
+.carousel-item {
+    transition: 700ms ease;
+  }
+
+.btn:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+#img {
+   width: 100px;
+   height: 100px;
+}
+
+.img {
+    width: 100%;
+}
+
+.promotion-price {
+    translate: 0 18px;
+}
+
+.cart {
+    color: var(--terciary-color);
+}
+
+#whatsapp {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d368;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 1px 1px 2px #616161;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo-home {
+    transition: var(--transition)
+}
+
+#logo-home:hover {
+    scale: 1.04;
+}
