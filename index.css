@@ -69,9 +69,6 @@ body {
     width: 100%;
 }
 
-.promotion-price {
-    translate: 0 18px;
-}
 
 .cart {
     color: var(--terciary-color);
