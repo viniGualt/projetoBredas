@@ -60,13 +60,14 @@ body {
     box-shadow: none;
 }
 
-#img {
-   width: 100px;
-   height: 100px;
+.product-img {
+    width: 120px;
+    height: 200px;
+    object-fit: cover;
 }
 
-.img {
-    width: 100%;
+.products:hover {
+    cursor: pointer;
 }
 
 

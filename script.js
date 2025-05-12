@@ -1,5 +1,6 @@
 const tokenApi = 'https://production.bredasapi.com.br/overall/auth/usuario';
 const productApi = 'https://production.bredasapi.com.br/erpproduto/integracaounimar';
+const divVitrine = document.getElementById("vitrine")
 
 const post = {
     "Grupo": "unimar",
@@ -44,9 +45,22 @@ async function getProduct(token) {
             throw new Error(`Erro ao obter produto: ${response.status}`);
         }
 
-        const data = await response.json();
-        console.log(data);
-        console.log(data.data[0])
+        let data = await response.json();
+        data = data.data
+        console.log(data)
+            data.forEach(product => {
+                if (product.imagens[0]) {
+                    let valorVenda = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(product.valorVenda)
+                    
+                    divVitrine.innerHTML += `<div class="products bg-white p-3 rounded-2xl shadow-xl border border-gray-900 overflow-hidden transition-transform hover:scale-103">
+                        <img class="mb-3 rounded-sm w-100 product-img" src="${product.imagens[0]?.urlImagem}" alt="${product.descricao}">
+                        <h6 class="font-semibold text-sm mb-2">${product.descricao}</h6>
+                        <div class="flex flex-nowrap justify-arround gap-3 text-md">
+                            <p class="price font-bold text-black">${valorVenda}</p>
+                        </div>
+                    </div>`
+                }
+            })
 
     } catch (error) {
         console.error('Erro:', error);
