@@ -9,26 +9,38 @@ const post = {
 };
 
 async function getToken() {
-    try {
-        const response = await fetch(tokenApi, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(post)
-        });
+    const tokenExpirado = localStorage.getItem("token_expires");
+    
+    if (tokenExpirado && Date.now() < parseInt(tokenExpirado)) {
+        return localStorage.getItem("token");
+    } else {
+        try {
+            const response = await fetch(tokenApi, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(post)
+            });
 
-        if (!response.ok) {
-            throw new Error(`Erro: ${response.status}`);
+            if (!response.ok) {
+                throw new Error(`Erro: ${response.status}`);
+            }
+
+            const data = await response.json();
+            const token = data.data.access_token;
+            console.log("Novo token gerado!")
+
+            const expireDate = Date.now() + 24 * 60 * 60 * 1000; // 24h em ms, para expiração do token
+            
+            localStorage.setItem("token", token);
+            localStorage.setItem("token_expires", expireDate);
+            
+            return token;
+        } catch (error) {
+            console.error('Erro:', error);
+            return null;
         }
-
-        const data = await response.json();
-        const token = data.data.access_token;
-        console.log('Token adquirido');
-
-        return token;
-    } catch (error) {
-        console.error('Erro:', error);
     }
 }
 
@@ -48,6 +60,7 @@ async function getProduct(token) {
         let data = await response.json();
         data = data.data
         console.log(data)
+        
             data.forEach(product => {
                 if (product.imagens[0]) {
                     let valorVenda = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(product.valorVenda)
