@@ -51,7 +51,6 @@
                     </svg>
                 </button>
             </div>
-
         </div>
     </nav>
 
@@ -60,11 +59,11 @@
         <!-- Imagens -->
         <div>
             <div class="flex flex-col gap-4">
-                <img src="#" alt="Imagem Principal" class="rounded-lg shadow">
+                <img id="main-img" src="#" alt="Imagem Principal" class="rounded-lg shadow">
                 <div class="flex gap-2">
-                    <img src="#" class="w-14 h-14 object-cover border">
-                    <img src="#" class="w-14 h-14 object-cover border">
-                    <img src="#" class="w-14 h-14 object-cover border">
+                    <img id="thumb-1" src="#" class="w-14 h-14 object-cover border">
+                    <img id="thumb-2" src="#" class="w-14 h-14 object-cover border">
+                    <img id="thumb-3" src="#" class="w-14 h-14 object-cover border">
                 </div>
             </div>
         </div>
@@ -72,17 +71,17 @@
         <!-- Detalhes do Produto -->
         <div class="md:col-span-2">
             <div class="border p-4 rounded shadow">
-                <span class="bg-yellow-200 text-yellow-800 px-2 py-1 text-xs rounded">Novo</span>
-                <h1 class="text-2xl font-bold mt-2">GALAXY S22 ULTRA</h1>
+                <span id="tag-novo" class="bg-yellow-200 text-yellow-800 px-2 py-1 text-xs rounded">Novo</span>
+                <h1 id="product-title" class="text-2xl font-bold mt-2">GALAXY S22 ULTRA</h1>
                 <div class="flex items-center gap-1 mt-1">
                     <span class="text-yellow-400">★★★★★</span>
-                    <span>(1000)</span>
+                    <span id="product-reviews">(1000)</span>
                 </div>
                 <div class="mt-4 text-gray-700">
-                    <p class="line-through text-sm">R$ 5.195,00</p>
-                    <p class="text-3xl font-bold text-blue-600">R$ 2.272,84 <span
+                    <p id="old-price" class="line-through text-sm">R$ 5.195,00</p>
+                    <p id="price" class="text-3xl font-bold text-blue-600">R$ 2.272,84 <span
                             class="bg-yellow-400 text-white px-2 py-1 rounded text-sm">56% OFF</span></p>
-                    <p class="text-sm mt-2">ou 10x de R$ 227,28</p>
+                    <p id="installments" class="text-sm mt-2">ou 10x de R$ 227,28</p>
                 </div>
                 <p class="text-sm text-green-600 mt-2">Envio para todo o país</p>
                 <p class="text-sm text-gray-600">Estoque disponível</p>
@@ -107,56 +106,25 @@
             <tbody>
                 <tr class="border">
                     <td class="p-2 font-semibold">Marca</td>
-                    <td class="p-2">Samsung</td>
+                    <td class="p-2" id="product-marca">Samsung</td>
                 </tr>
                 <tr class="border">
                     <td class="p-2 font-semibold">Modelo</td>
-                    <td class="p-2">Galaxy S22 Ultra</td>
+                    <td class="p-2" id="product-modelo">Galaxy S22 Ultra</td>
                 </tr>
             </tbody>
         </table>
     </section>
-
-    <!-- Categorias -->
-    <section class="p-6">
-        <h2 class="text-xl font-semibold mb-4">Compre nas Melhores Categorias</h2>
-        <div class="flex gap-6 overflow-x-auto">
-            <div class="text-center">
-                <div class="bg-gray-100 p-4 rounded-full w-24 h-24 mx-auto"></div>
-                <p>Móbile</p>
-            </div>
-            <div class="text-center">
-                <div class="bg-gray-100 p-4 rounded-full w-24 h-24 mx-auto"></div>
-                <p>Cosméticos</p>
-            </div>
-            <div class="text-center">
-                <div class="bg-gray-100 p-4 rounded-full w-24 h-24 mx-auto"></div>
-                <p>Eletrônicos</p>
-            </div>
-            <div class="text-center">
-                <div class="bg-gray-100 p-4 rounded-full w-24 h-24 mx-auto"></div>
-                <p>Moda</p>
-            </div>
-    </section>
-
-    <!-- Marcas -->
-    <section class="p-6">
-        <h2 class="text-xl font-semibold mb-4">Melhores Marcas Eletrônicas</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="bg-black text-white p-4 text-center rounded">
-                <p>Apple</p>
-                <p class="text-sm">Up to 80% OFF</p>
-            </div>
-            <div class="bg-yellow-400 text-black p-4 text-center rounded">
-                <p>Realme</p>
-                <p class="text-sm">Up to 70% OFF</p>
-            </div>
-            <div class="bg-orange-300 text-black p-4 text-center rounded">
-                <p>Xiaomi</p>
-                <p class="text-sm">Up to 80% OFF</p>
+    
+    <div class="container mb-3">
+        <h1 class="text-center mb-4"><strong>Destaques</strong></h1>
+        <div class="container mb-3">
+            <div class="row">
+                <div id="vitrine" class="grid grid-cols-2 gap-4 md:grid-cols-4 xl:grid-cols-5">
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- FOOTER -->
     <footer id="footer" class="w-full p-4 bg-white sm:p-6 dark:bg-gray-800 m-0 box-border">
@@ -210,6 +178,7 @@
                 <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2025 Bredas Todos os
                     Direitos Reservados.
                 </span>
+                <!-- ...existing code... -->
                 <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
                     <a href="https://bredas.com.br/" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -227,15 +196,15 @@
                     </a>
                     <a href="https://bredas.com.br/" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                            <path fill-rule="evenodd"
+                                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                                clip-rule="evenodd" />
                         </svg>
                     </a>
                     <a href="https://bredas.com.br/" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                                clip-rule="evenodd" />
+                            <path
+                                d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
                         </svg>
                     </a>
                     <a href="https://bredas.com.br/" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
@@ -249,6 +218,102 @@
             </div>
         </div>
     </footer>
+    <script>
+        const tokenApi = 'https://production.bredasapi.com.br/overall/auth/usuario';
+        const productApi = 'https://production.bredasapi.com.br/erpproduto/integracaounimar';
+
+        const post = {
+            "Grupo": "unimar",
+            "Login": "unimar",
+            "Senha": "unimar"
+        };
+
+        async function getToken() {
+            const tokenExpirado = localStorage.getItem("token_expires");
+            if (tokenExpirado && Date.now() < parseInt(tokenExpirado)) {
+                return localStorage.getItem("token");
+            } else {
+                try {
+                    const response = await fetch(tokenApi, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(post)
+                    });
+                    if (!response.ok) throw new Error(`Erro: ${response.status}`);
+                    const data = await response.json();
+                    const token = data.data.access_token;
+                    const expireDate = Date.now() + 24 * 60 * 60 * 1000;
+                    localStorage.setItem("token", token);
+                    localStorage.setItem("token_expires", expireDate);
+                    return token;
+                } catch (error) {
+                    console.error('Erro:', error);
+                    return null;
+                }
+            }
+        }
+
+        async function getProduct(token) {
+            try {
+                const response = await fetch(productApi, {
+                    method: 'GET',
+                    headers: { 'Authorization': `${token}` },
+                });
+                if (!response.ok) throw new Error(`Erro ao obter produto: ${response.status}`);
+                let data = await response.json();
+                data = data.data;
+
+                // Produto principal (primeiro)
+                const product = data[0];
+                if (product) {
+                    document.getElementById('main-img').src = product.imagens[0]?.urlImagem || '#';
+                    document.getElementById('main-img').alt = product.descricao || 'Imagem Principal';
+                    document.getElementById('thumb-1').src = product.imagens[0]?.urlImagem || '#';
+                    document.getElementById('thumb-2').src = product.imagens[1]?.urlImagem || '#';
+                    document.getElementById('thumb-3').src = product.imagens[2]?.urlImagem || '#';
+                    document.getElementById('product-title').textContent = product.descricao || '';
+                    document.getElementById('old-price').textContent = product.valorVendaDe
+                        ? new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(product.valorVendaDe)
+                        : '';
+                    document.getElementById('price').innerHTML = `${new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(product.valorVenda)} <span class="bg-yellow-400 text-white px-2 py-1 rounded text-sm">${product.percentualDesconto ? product.percentualDesconto + '% OFF' : ''}</span>`;
+                    document.getElementById('installments').textContent = product.qtdParcelas && product.valorParcela
+                        ? `ou ${product.qtdParcelas}x de ${new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(product.valorParcela)}`
+                        : '';
+                    document.getElementById('product-reviews').textContent = product.qtdAvaliacoes ? `(${product.qtdAvaliacoes})` : '';
+                    document.getElementById('product-marca').textContent = product.marca || '';
+                    document.getElementById('product-modelo').textContent = product.modelo || '';
+                }
+
+                // Destaques (outros produtos)
+                const vitrine = document.getElementById('vitrine');
+                vitrine.innerHTML = '';
+                data.slice(1, 11).forEach(prod => { // Mostra até 10 destaques
+                    if (prod.imagens && prod.imagens[0]) {
+                        let valorVenda = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(prod.valorVenda);
+                        vitrine.innerHTML += `
+                            <div class="products bg-white p-3 rounded-2xl shadow-xl border border-gray-900 overflow-hidden transition-transform hover:scale-105">
+                                <img class="mb-3 rounded-sm w-100 product-img" src="${prod.imagens[0].urlImagem}" alt="${prod.descricao}">
+                                <h6 class="font-semibold text-sm mb-2">${prod.descricao}</h6>
+                                <div class="flex flex-nowrap justify-around gap-3 text-md">
+                                    <p class="price font-bold text-black">${valorVenda}</p>
+                                </div>
+                            </div>
+                        `;
+                    }
+                });
+
+            } catch (error) {
+                console.error('Erro:', error);
+            }
+        }
+
+        async function carregarProduto() {
+            const token = await getToken();
+            if (token) await getProduct(token);
+        }
+
+        carregarProduto();
+    </script>
 </body>
 
 </html>
