@@ -4,55 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produto - Nike Pegasus 40</title>
+    <title>Página do produto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="icon" href="./assets/img/favicon.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-white font-sans">
     <!-- Header -->
-    <nav class="sticky top-0 bg-white dark:bg-gray-800 w-full border-b border-gray-200 dark:border-gray-600">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="./assets/img/logo-bredas.svg" class="block dark:hidden w-32 h-auto" alt="Logo">
-                <img src="./assets/img/logo-bredas.svg" class="hidden dark:block w-auto h-10 p-0" alt="Logo">
+    <nav class="navbar navbar-expand-lg blue bg-blue border-bottom border-gray-200">
+        <div class="container ms-4 justify-content-center">
+            <a class="navbar-brand" href="#">
+                <img src="./assets/img/logo-bredas.svg" alt="Logo Bredas" id="logo-home" width="100px">
             </a>
-            <div class="flex items-center md:order-2 space-x-3 md:space-x-1 rtl:space-x-reverse">
-                <div class="hidden md:flex items-center space-x-3 rtl:space-x-reverse mr-4">
-                    <input type="text" placeholder="Buscar produtos..."
-                        class="border px-2 py-1 rounded text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                    <a href="#" class="text-gray-900 dark:text-gray-300 hover:underline">Entrar/Cadastrar</a>
-                    <a href="#" class="text-gray-900 dark:text-gray-300 hover:underline">Carrinho</a>
-                </div>
-                <a href="#contact"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer md:hidden">
-                    Contatar
-                </a>
-                <button id="theme-toggle" type="button"
-                    class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
-                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                    </svg>
-                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                            fill-rule="evenodd" clip-rule="evenodd"></path>
-                    </svg>
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav flex-grow-1 link-blue align-items-center">
+                    <li class="nav-item">
+                        <a href="#buscaProduto" class="nav-link">Home</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="toggler">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                    <span><i class="bi bi-three-dots"></i></span>
                 </button>
-                <button data-collapse-toggle="navbar-sticky" type="button"
-                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:ring-gray-600"
-                    aria-controls="navbar-sticky" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 17 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M1 1h15M1 7h15M1 13h15" />
-                    </svg>
-                </button>
+                <a href="/carrinho.html" class="cart nav-item position-absolute" style="top: 2.3vh; right: 3vw;scale: 1.2;"><i class="bi bi-cart2"></i></a>
             </div>
         </div>
-    </nav>
+    </nav>  
 
     <!-- Produto -->
     <section class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -208,7 +189,7 @@
             </div>
         </div>
     </footer>
-    <script src="./assets/produto.js"></script>
+    <script src="./assets/js/produto.js"></script>
 </body>
 
 </html>
