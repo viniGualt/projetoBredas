@@ -66,11 +66,13 @@ async function getProduct(token) {
                     let valorVenda = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(product.valorVenda)
                     
                     divVitrine.innerHTML += `<div class="products bg-white p-3 rounded-2xl shadow-xl border border-gray-900 overflow-hidden transition-transform hover:scale-103">
-                        <img class="mb-3 rounded-sm w-100 product-img" src="${product.imagens[0]?.urlImagem}" alt="${product.descricao}">
-                        <h6 class="font-semibold text-sm mb-2">${product.descricao}</h6>
-                        <div class="flex flex-nowrap justify-arround gap-3 text-md">
-                            <p class="price font-bold text-black">${valorVenda}</p>
-                        </div>
+                        <a href="produto.html?id=${product.idProduto}" class="text-decoration-none no-underline text-black">
+                            <img class="mb-3 rounded-sm w-100 product-img" src="${product.imagens[0]?.urlImagem}" alt="${product.descricao}">
+                            <h6 class="font-semibold text-sm mb-2">${product.descricao}</h6>
+                            <div class="flex flex-nowrap justify-arround gap-3 text-md">
+                                <p class="price font-bold text-black">${valorVenda}</p>
+                            </div>
+                        </a>
                     </div>`
                 }
             })

@@ -12,9 +12,9 @@
     <!-- Header -->
     <nav class="sticky top-0 bg-white dark:bg-gray-800 w-full border-b border-gray-200 dark:border-gray-600">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="#home" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="./assets/img/logo-bredas.svg" class="block dark:hidden w-32 h-auto" alt="Logo">
-                <img src="./assets/img/favicon.png" class="hidden dark:block w-auto h-10 p-0" alt="Logo">
+                <img src="./assets/img/logo-bredas.svg" class="hidden dark:block w-auto h-10 p-0" alt="Logo">
             </a>
             <div class="flex items-center md:order-2 space-x-3 md:space-x-1 rtl:space-x-reverse">
                 <div class="hidden md:flex items-center space-x-3 rtl:space-x-reverse mr-4">
@@ -92,7 +92,7 @@
                 </div>
 
                 <div class="mt-4 flex gap-4">
-                    <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Comprar</button>
+                    <a href="carrinho.html" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Comprar</a>
                     <button class="border px-6 py-2 rounded hover:bg-gray-100">+ Adicionar ao carrinho</button>
                 </div>
                 <div class="mt-10">
@@ -208,85 +208,7 @@
             </div>
         </div>
     </footer>
-    <script>
-        const tokenApi = 'https://production.bredasapi.com.br/overall/auth/usuario';
-        const productApi = 'https://production.bredasapi.com.br/erpproduto/integracaounimar';
-
-        const post = {
-            "Grupo": "unimar",
-            "Login": "unimar",
-            "Senha": "unimar"
-        };
-
-        async function getToken() {
-            const tokenExpirado = localStorage.getItem("token_expires");
-            if (tokenExpirado && Date.now() < parseInt(tokenExpirado)) {
-                return localStorage.getItem("token");
-            } else {
-                try {
-                    const response = await fetch(tokenApi, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(post)
-                    });
-                    if (!response.ok) throw new Error(`Erro: ${response.status}`);
-                    const data = await response.json();
-                    const token = data.data.access_token;
-                    const expireDate = Date.now() + 24 * 60 * 60 * 1000;
-                    localStorage.setItem("token", token);
-                    localStorage.setItem("token_expires", expireDate);
-                    return token;
-                } catch (error) {
-                    console.error('Erro:', error);
-                    return null;
-                }
-            }
-        }
-
-        async function getProduct(token) {
-            try {
-                const response = await fetch(productApi, {
-                    method: 'GET',
-                    headers: { 'Authorization': `${token}` },
-                });
-                if (!response.ok) throw new Error(`Erro ao obter produto: ${response.status}`);
-                let data = await response.json();
-                data = data.data;
-
-                // Produto principal (primeiro)
-                const product = data[0];
-                if (product) {
-                    document.getElementById('main-img').src = product.imagens[0]?.urlImagem || '#';
-                    document.getElementById('main-img').alt = product.descricao || 'Imagem Principal';
-                    document.getElementById('thumb-1').src = product.imagens[0]?.urlImagem || '#';
-                    document.getElementById('thumb-2').src = product.imagens[1]?.urlImagem || '#';
-                    document.getElementById('thumb-3').src = product.imagens[2]?.urlImagem || '#';
-                    document.getElementById('product-title').textContent = product.descricao || '';
-                    document.getElementById('old-price').textContent = product.valorVendaDe
-                        ? new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(product.valorVendaDe)
-                        : '';
-                    document.getElementById('price').innerHTML = `${new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(product.valorVenda)} <span class="bg-yellow-400 text-white px-2 py-1 rounded text-sm">${product.percentualDesconto ? product.percentualDesconto + '% OFF' : ''}</span>`;
-                    document.getElementById('installments').textContent = product.qtdParcelas && product.valorParcela
-                        ? `ou ${product.qtdParcelas}x de ${new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(product.valorParcela)}`
-                        : '';
-                    document.getElementById('product-reviews').textContent = product.qtdAvaliacoes ? `(${product.qtdAvaliacoes})` : '';
-                    document.getElementById('product-marca').textContent = product.marca || 'Nike';
-                    document.getElementById('product-modelo').textContent = product.modelo || 'Nike Pegasus 40';
-                }
-
-            } catch (error) {
-                console.error('Erro:', error);
-            }
-        }
-
-        async function carregarProduto() {
-            const token = await getToken();
-            if (token) await getProduct(token);
-        }
-
-        carregarProduto();
-
-    </script>
+    <script src="./assets/produto.js"></script>
 </body>
 
 </html>
